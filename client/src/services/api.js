@@ -1,11 +1,7 @@
 import axios from 'axios';
 
 const getBackendUrl = () => {
-    if (import.meta.env.PROD) {
-        return '/api';
-    }
-    const hostname = window.location.hostname;
-    return `http://${hostname}:5000/api`;
+    return import.meta.env.VITE_API_URL || '/api';
 };
 
 const api = axios.create({
